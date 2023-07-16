@@ -1,0 +1,1 @@
+clang main.ll -o main.exe -l msvcrt

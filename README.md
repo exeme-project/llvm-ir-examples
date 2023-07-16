@@ -32,7 +32,7 @@ git clone https://github.com/exeme-project/llvm-ir-examples
 
 #### Windows
 
-```bash
+```batch
 cd hello-world
 clang main.ll -o main.exe
 main.exe
@@ -50,7 +50,7 @@ clang main.ll -o main
 
 #### Windows
 
-```bash
+```batch
 build-all.bat
 ```
 

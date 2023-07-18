@@ -1,12 +1,13 @@
 @str.0 = constant [40 x i8] c"Enter the number of terms to generate: \00" ; '\00' is the null terminator
-@str.1 = constant [21 x i8] c"Fibonacci Sequence: \00" ; '\00' is the null terminator
-@str.2 = constant [3 x i8] c"%d\00" ; '\00' is the null terminator
-@str.3 = constant [5 x i8] c"%d, \00" ; '\00' is the null terminator
+@str.1 = constant [21 x i8] c"Fibonacci Sequence: \00"
+@str.2 = constant [3 x i8] c"%d\00"
+@str.3 = constant [5 x i8] c"%d, \00"
 
 declare i64 @printf(i8*, ...) ; external declaration for the printf function
-declare i64 @scanf(i8*, ...) ; external declaration for the scanf function
+declare i64 @scanf(i8*, ...)
 
-define void @fibonacci(i64* %num) { ; return type is i64, parameter is a pointer to a i64
+; definition of fibonacci function
+define void @fibonacci(i64* %num) { ; return type is i64, parameter is i64*
     %1 = load i64, i64* %num ; load the value of %num into %1
     %2 = getelementptr [5 x i8], [5 x i8]* @str.3, i64 0, i64 0 ; convert [5 x i8]* to i8*
 
@@ -48,19 +49,19 @@ define void @fibonacci(i64* %num) { ; return type is i64, parameter is a pointer
         ret void
 }
 
-; declaration of main function
+; definition of main function
 define i64 @main() { ; return type is i64, no parameters
     %1 = getelementptr [40 x i8], [40 x i8]* @str.0, i64 0, i64 0 ; convert [40 x i8]* to i8*
-    %2 = getelementptr [21 x i8], [21 x i8]* @str.1, i64 0, i64 0 ; convert [21 x i8]* to i8*
-    %3 = getelementptr [3 x i8], [3 x i8]* @str.2, i64 0, i64 0 ; convert [3 x i8]* to i8*
+    %2 = getelementptr [21 x i8], [21 x i8]* @str.1, i64 0, i64 0
+    %3 = getelementptr [3 x i8], [3 x i8]* @str.2, i64 0, i64 0
 
     %4 = alloca i64 ; allocate space on the stack for an i64
 
     %5 = call i64 (i8*, ...) @printf(i8* %1) ; call printf with %1
-    %6 = call i64 (i8*, ...) @scanf(i8* %3, i64* %4) ; call scanf with %2 and %4
-    %7 = call i64 (i8*, ...) @printf(i8* %2) ; call printf with %2
+    %6 = call i64 (i8*, ...) @scanf(i8* %3, i64* %4)
+    %7 = call i64 (i8*, ...) @printf(i8* %2)
 
-    call void @fibonacci(i64* %4) ; call fibonacci with %4
+    call void @fibonacci(i64* %4)
 
     ret i64 0 ; return a success code
 }

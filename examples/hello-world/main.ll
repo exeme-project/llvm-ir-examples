@@ -1,4 +1,4 @@
-@str = constant [14 x i8] c"Hello, World!\00" ; '\0A' is a newline, '\00' is the null terminator
+@str = constant [14 x i8] c"Hello, World!\00" ; '\00' is the null terminator
 
 declare i32 @puts(i8*) ; external declaration for the puts function
 

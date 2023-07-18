@@ -1,1 +1,1 @@
-clang main.ll -o main.exe -l msvcrt 
+clang main.ll -l legacy_stdio_definitions -o main.exe && cls && main

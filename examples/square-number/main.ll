@@ -1,5 +1,5 @@
 @str.0 = constant [17 x i8] c"Enter a number: \00" ; '\00' is the null terminator
-@str.1 = constant [28 x i8] c"Your number squared is: %d.\00" ; '\00' is the null terminator
+@str.1 = constant [29 x i8] c"Your number squared is: %d.\0A\00" ; '\0A' is the newline character, '\00' is the null terminator
 @str.2 = constant [3 x i8] c"%d\00" ; '\00' is the null terminator
 
 declare i64 @printf(i8*, ...) ; external declaration for the printf function
@@ -16,7 +16,7 @@ define i64 @square(i64* %num) { ; return type is i64, parameter is a pointer to 
 ; declaration of main function
 define i64 @main() { ; return type is i64, no parameters
     %1 = getelementptr [17 x i8], [17 x i8]* @str.0, i64 0, i64 0 ; convert [17 x i8]* to i8*
-    %2 = getelementptr [28 x i8], [28 x i8]* @str.1, i64 0, i64 0 ; convert [27 x i8]* to i8*
+    %2 = getelementptr [29 x i8], [29 x i8]* @str.1, i64 0, i64 0 ; convert [27 x i8]* to i8*
     %3 = getelementptr [3 x i8], [3 x i8]* @str.2, i64 0, i64 0 ; convert [3 x i8]* to i8*
 
     %4 = alloca i64 ; allocate space on the stack for an i64

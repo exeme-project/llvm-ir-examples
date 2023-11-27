@@ -24,11 +24,13 @@ git clone https://github.com/exeme-project/llvm-ir-examples
 
 ## Building
 
-> **Note** These examples assume your command prompt is open in the **`examples`** directory.
+> [!NOTE]\
+> These examples assume your command prompt is open in the **`examples`** directory.
 
 ### Building a Specific Example
 
-> **Note** These examples are for the **`hello-world`** example. Replace *`hello-world`* with the name of the example you want to build.
+> [!NOTE]\
+> These examples are for the **`hello-world`** example. Replace *`hello-world`* with the name of the example you want to build.
 
 #### Windows
 
